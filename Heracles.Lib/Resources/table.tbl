@@ -1,0 +1,41 @@
+﻿# Chars
+?=Ä
+｡=Â
+｢=À
+｣=Á
+､=Ë
+･=Ê
+ｦ=È
+ｧ=É
+ｨ=Ï
+ｩ=Î
+ｪ=Ì
+ｫ=Í
+ｬ=Ö
+ｭ=Ô
+ｮ=Ò
+ｯ=Ó
+ｰ=Ü
+ｱ=Û
+ｲ=Ù
+ｳ=Ú
+ｴ=Ç
+ｶ=Ñ
+ｵ=Œ
+ﾗ=ẞ
+
+# Control Codes
+\@=\n
+# Text color control codes
+\1={COLOR_RED}
+\2={COLOR_ORANGE}
+\3={COLOR_YELLOW}
+\4={COLOR_BLACK}
+\5={COLOR_PURPLE}
+\6={COLOR_TURQUOISE}
+\7={COLOR_CYAN}
+\F={COLOR_DEFAULT}
+# Clears all text in textbox
+\*={CLEAR}
+# Waits for player input
+\k={PRESS}
