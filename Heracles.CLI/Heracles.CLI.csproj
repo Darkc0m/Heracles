@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Heracles.Lib\Heracles.Lib.csproj" />
+  </ItemGroup>
+
 </Project>
