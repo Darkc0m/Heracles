@@ -46,7 +46,7 @@ namespace Heracles.Test
                     Assert.Fail($"Exception Itemdata -> Po with {node.Path}\n{ex}");
                 }
 
-                new Po2Binary().Convert(expectedPo).Stream.WriteTo(AppDomain.CurrentDomain.BaseDirectory + "/../../../" + "Resources/itemdata.po");
+                //new Po2Binary().Convert(expectedPo).Stream.WriteTo(AppDomain.CurrentDomain.BaseDirectory + "/../../../" + "Resources/itemdata.po");
 
                 // Po -> Itemdata
                 Itemdata actualItemdata = null;
