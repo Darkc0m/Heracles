@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Yarhl.IO;
+using Yarhl.IO.Serialization.Attributes;
 
 namespace Heracles.Lib.Utils
 {
@@ -17,8 +18,8 @@ namespace Heracles.Lib.Utils
             base.Write(HeraclesReplacer.Encode(s));
         }
 
-        public void Write(string s, int i) {
-            base.Write(HeraclesReplacer.Encode(s), i);
+        public void Write(string s, int i, bool nullTerminator = true) {
+            base.Write(HeraclesReplacer.Encode(s), i, nullTerminator);
         }
 
         public int GetByteCount(string s) {
