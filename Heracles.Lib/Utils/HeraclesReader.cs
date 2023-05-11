@@ -17,6 +17,10 @@ namespace Heracles.Lib.Utils
             return HeraclesReplacer.Decode(base.ReadString());
         }
 
+        public string ReadString(int num) {
+            return HeraclesReplacer.Decode(base.ReadString(num).TrimEnd('\0'));
+        }
+
         public string ReadPointer32String(int pointerBase = 0) {
             Stream.PushToPosition(ReadUInt32() + pointerBase);
             string s = ReadString();
