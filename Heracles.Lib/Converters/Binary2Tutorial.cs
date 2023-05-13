@@ -64,7 +64,7 @@ namespace Heracles.Lib.Converters
             for(int i = 0; i < tut.text.Count; i++) {
                 writer.Write(tut.metadata[i]);
                 writer.Write(offset);
-                offset += (ushort)(writer.DefaultEncoding.GetByteCount(tut.text[i]) / 2 + 1);
+                offset += (ushort)(writer.GetByteCount(tut.text[i]) / 2 + 1);
             }
             writer.Write(tut.lastMetadata);
             writer.Write(tut.code);

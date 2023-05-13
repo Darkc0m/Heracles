@@ -31,7 +31,7 @@ namespace Heracles.Lib.Converters
                 currentOffset += 0x3E;
                 for (int j = 0; j < 10; j++) {
                     writer.Write(currentOffset);
-                    currentOffset += (uint)writer.GetByteCount(data.text[i * 11 + j + 1]);
+                    currentOffset += (uint)writer.GetByteCount(data.text[i * 11 + j + 1]) + 1;
                 }
             }
             writer.Write(currentOffset);

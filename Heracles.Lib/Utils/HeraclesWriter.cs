@@ -23,7 +23,7 @@ namespace Heracles.Lib.Utils
         }
 
         public int GetByteCount(string s) {
-            return DefaultEncoding.GetByteCount(HeraclesReplacer.Encode(s)) + 1;
+            return DefaultEncoding.GetByteCount(HeraclesReplacer.Encode(s));
         }
 
         public void WriteTextPointers32(List<string> texts, uint initialAddress) {
