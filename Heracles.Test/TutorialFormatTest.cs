@@ -50,7 +50,7 @@ namespace Heracles.Test
                         Assert.Fail($"Exception Tutorial -> Po with {node.Path}\n{ex}");
                     }
 
-                    new Po2Binary().Convert(expectedPo).Stream.WriteTo(AppDomain.CurrentDomain.BaseDirectory + "/../../../" + $"Resources/{node.Name}.po");
+                    //new Po2Binary().Convert(expectedPo).Stream.WriteTo(AppDomain.CurrentDomain.BaseDirectory + "/../../../" + $"Resources/{node.Name}.po");
 
                     // Po -> Tutorial
                     Tutorial actualTutorial = null;
@@ -78,51 +78,51 @@ namespace Heracles.Test
             }
         }
 
-        private bool CompareTutorials(BinaryFormat original, BinaryFormat updated) {
-            var o = new HeraclesReader(original.Stream);
-            var u = new HeraclesReader(updated.Stream);
-            o.Stream.Position = 0x00;
-            u.Stream.Position = 0x00;
+        private bool CompareTutorials(BinaryFormat originalBin, BinaryFormat updatedBin) {
+            var original = new HeraclesReader(originalBin.Stream);
+            var updated = new HeraclesReader(updatedBin.Stream);
+            original.Stream.Position = 0x00;
+            updated.Stream.Position = 0x00;
 
             ushort valueO, valueU;
             string stringO, stringU;
-            long textStart = o.Stream.Length;
+            long textStart = original.Stream.Length;
             long textEndO = 0, textEndU = 0;
             do {
-                valueO = o.ReadUInt16();
-                valueU = u.ReadUInt16();
+                valueO = original.ReadUInt16();
+                valueU = updated.ReadUInt16();
                 if (valueO != valueU)
                     return false;
                 else if (valueO == 0x1100) {
-                    uint offsetO = (uint)(o.ReadUInt16() * 2);
-                    uint offsetU = (uint)(u.ReadUInt16() * 2);
+                    uint offsetO = (uint)(original.ReadUInt16() * 2);
+                    uint offsetU = (uint)(updated.ReadUInt16() * 2);
                     textStart = offsetO < textStart ? offsetO : textStart;
-                    o.Stream.PushToPosition(offsetO);
-                    u.Stream.PushToPosition(offsetU);
-                    stringO = o.ReadString();
-                    stringU = u.ReadString();
-                    textEndO = o.Stream.Position > textEndO ? o.Stream.Position : textEndO;
-                    textEndU = u.Stream.Position > textEndU ? u.Stream.Position : textEndU;
+                    original.Stream.PushToPosition(offsetO);
+                    updated.Stream.PushToPosition(offsetU);
+                    stringO = original.ReadString();
+                    stringU = updated.ReadString();
+                    textEndO = original.Stream.Position > textEndO ? original.Stream.Position : textEndO;
+                    textEndU = updated.Stream.Position > textEndU ? updated.Stream.Position : textEndU;
                     if (stringO != stringU)
                         return false;
-                    u.Stream.PopPosition();
-                    o.Stream.PopPosition();
+                    updated.Stream.PopPosition();
+                    original.Stream.PopPosition();
                 }
-            } while (o.Stream.Position < textStart);
+            } while (original.Stream.Position < textStart);
 
-            u.Stream.Position = textEndU;
-            o.Stream.Position = textEndO;
-            u.SkipPadding(0x02);
-            o.SkipPadding(0x02);
-            if (o.Stream.Length - o.Stream.Position != u.Stream.Length - u.Stream.Position)
+            updated.Stream.Position = textEndU;
+            original.Stream.Position = textEndO;
+            updated.SkipPadding(0x02);
+            original.SkipPadding(0x02);
+            if (original.Stream.Length - original.Stream.Position != updated.Stream.Length - updated.Stream.Position)
                 return false;
 
             do {
-                valueO = o.ReadUInt16();
-                valueU = u.ReadUInt16();
+                valueO = original.ReadUInt16();
+                valueU = updated.ReadUInt16();
                 if (valueO != valueU)
                     return false;
-            } while (!o.Stream.EndOfStream);
+            } while (!original.Stream.EndOfStream);
 
             return true;
         }
