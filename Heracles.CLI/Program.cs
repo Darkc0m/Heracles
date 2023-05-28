@@ -1,9 +1,16 @@
-﻿namespace Heracles.CLI
+﻿using System.CommandLine;
+
+namespace Heracles.CLI
 {
-    internal class Program
+    public static class Program
     {
-        static void Main(string[] args) {
-            Console.WriteLine("Hello, World!");
+        public static int Main(string[] args) {
+            return new RootCommand("Export and import Glory of Heracles (NDS) files") {
+                CommandLine.ExportTextCommand(),
+                CommandLine.ImportTextCommand(),
+                CommandLine.ExportContainerCommand(),
+                CommandLine.ImportContainerCommand(),
+            }.Invoke(args);
         }
     }
 }

@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21216.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Heracles.Lib\Heracles.Lib.csproj" />
   </ItemGroup>
 
