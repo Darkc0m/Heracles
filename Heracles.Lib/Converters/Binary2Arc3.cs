@@ -16,6 +16,7 @@ namespace Heracles.Lib.Converters
         public Binary2Arc3(string name) {
             this.name = name;
         }
+        public Binary2Arc3() { }
         public Arc3 Convert(BinaryFormat bin) {
             var reader = new HeraclesReader(bin.Stream);
             var arc = new Arc3();

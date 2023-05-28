@@ -134,5 +134,33 @@ namespace Heracles.CLI
                 importArm,
             };
         }
+
+        public static Command ExportContainerCommand() {
+            var exportArc3 = new Command("arc3", "Export files from a version 3 .arc file")
+            {
+                new Option<string>("--srcPath", "Path of the .arc file", ArgumentArity.ExactlyOne),
+                new Option<string>("--dirPath", "Directory where the extracted files will be saved", ArgumentArity.ExactlyOne),
+            };
+            exportArc3.Handler = CommandHandler.Create<string, string>(ContainerCommands.exportArc3);
+
+            return new Command("export-c", "Export files from a container")
+            {
+                exportArc3,
+            };
+        }
+
+        public static Command ImportContainerCommand() {
+            var importArc3 = new Command("arc3", "Import files from a folder into a version 3 .arc file")
+            {
+                new Option<string>("--srcPath", "Directory with the files", ArgumentArity.ExactlyOne),
+                new Option<string>("--dirPath", "Directory where the .arc file will be saved", ArgumentArity.ExactlyOne),
+            };
+            importArc3.Handler = CommandHandler.Create<string, string>(ContainerCommands.importArc3);
+
+            return new Command("import-c", "Import files into a container")
+            {
+                importArc3,
+            };
+        }
     }
 }

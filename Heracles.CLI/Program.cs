@@ -8,6 +8,8 @@ namespace Heracles.CLI
             return new RootCommand("Export and import Glory of Heracles (NDS) files") {
                 CommandLine.ExportTextCommand(),
                 CommandLine.ImportTextCommand(),
+                CommandLine.ExportContainerCommand(),
+                CommandLine.ImportContainerCommand(),
             }.Invoke(args);
         }
     }
