@@ -59,84 +59,84 @@ Do not confuse with `UIMess.arc`.
 |`PlayerSkillsBlock`|`0x0116B94`|
 |`BattleDialogsBlock`|`0x011A1B0`|
 
-# `BattleBlock`
+### `BattleBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`BattleEntry[58]`|`entries`||
-# `BattleEntry`
+### `BattleEntry`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`byte[4]`|`metadata`||
 |`u32*`|`pointer`|Absolute offset pointers to the strings|
 
-# `StatusBlock`
+### `StatusBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`StatusEntry[47]`|`entries`||
-# `StatusEntry`
+### `StatusEntry`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`byte[6]`|`metadata`||
 |`string`|`text`|Fixed size `0x18` string|
 
-# `OutskirtsBlock`
+### `OutskirtsBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`OutskirtsEntry[19]`|`entries`||
-# `OutskirtsEntry`
+### `OutskirtsEntry`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`byte[4]`|`metadata`||
 |`string`|`text`|Fixed size `0x20` string|
 
-# `LocationsBlock`
+### `LocationsBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`LocationsEntry[275]`|`entries`||
-# `LocationsEntry`
+### `LocationsEntry`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`byte[0x4]`|`metadata`||
 |`string`|`text`|Fixed size `0x20` string|
 
-# `AbilitiesBlock`
+### `AbilitiesBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`AbilitiesEntry[47]`|`entries`||
-# `AbilitiesEntry`
+### `AbilitiesEntry`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`byte[0x10]`|`metadata`||
 |`string`|`name`|Name of the ability. Fixed size `0x14` string|
 |`u32*`|`descriptionPointer`|Pointer to the description of the ability|
 
-# `SpellsBlock`
+### `SpellsBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`SpellsEntry[80]`|`entries`||
-# `SpellsEntry`
+### `SpellsEntry`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`string`|`name`|Name of the spell. Fixed size `0x10` string|
 |`byte[0x30]`|`metadata`||
 |`u32*`|`descriptionPointer`|Pointer to the description of the spell|
 
-# `EnemySkillsBlock`
+### `EnemySkillsBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`EnemySkillEntry[113]`|`entries`||
-# `EnemySkillEntry`
+### `EnemySkillEntry`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`string`|`name`|Name of the skill. Fixed size `0x10` string|
 |`byte[0x24]`|`metadata`||
 |`u32*`|`descriptionPointer`|Pointer to the description of the skill (ignored due to not being used ingame)|
 
-# `PlayerSkillsBlock`
+### `PlayerSkillsBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`PlayerSkillEntry[173]`|`entries`||
-# `PlayerSkillEntry`
+### `PlayerSkillEntry`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`byte[0x14]`|`metadata`||
@@ -144,7 +144,7 @@ Do not confuse with `UIMess.arc`.
 |`u32*`|`descriptionPointer`|Pointer to the description of the skill|
 |`byte[0x24]`|`metadata`||
 
-# `BattleDialogsBlock`
+### `BattleDialogsBlock`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`u32*[931]`|`pointers`|Pointer to the text|
@@ -162,7 +162,7 @@ Do not confuse with `UIMess.arc`.
 |`FileData[numFilePointers]`|`fileData`||
 |`Files[numFiles]`|`files`||
 
-# `FileData`
+### `FileData`
 | Data type| Given Name | Description |
 |----------|----------|----------|
 |`u32`|`fileOffset`|Absolute offset of the file, can be `0x00` (no file)|
